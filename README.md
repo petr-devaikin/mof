@@ -90,13 +90,13 @@ Edit an Entity
 
 When user clicks 'Edit' button, the plugin sends GET request to url from <b>mof-edit-url</b> attribute. The answer should be HTML code with edit form and 'cancal' and 'confirm' buttons:
 ```
-    <tr class="mofEntity" mof-edit-url="edit_entity_1_url">
-        <td><input value="Entity 1" /></td>
-        <td>
-            <button class="mofEntityConfirmButton">Confirm</button>
-            <button class="mofEntityCancelButton">Cancel</button>
-        </td>
-    </tr>
+<tr class="mofEntity" mof-edit-url="edit_entity_1_url">
+    <td><input value="Entity 1" /></td>
+    <td>
+        <button class="mofEntityConfirmButton">Confirm</button>
+        <button class="mofEntityCancelButton">Cancel</button>
+    </td>
+</tr>
 ```
 
 If user clicks 'Confirm' button, the plugin sends POST request to url from <b>mof-edit-url</b> attribute. The answer should be the HTML code of a modified entity.
