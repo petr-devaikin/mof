@@ -4,6 +4,8 @@ Edit list of entities on single page.
 
 Plugin allows to add new entities to a list, edit and remove existing objects. It works with tables, lists and other structures.
 
+You can find a simple example <a href="http://petr-devaikin.github.io/mof">here</a>.
+
 Quickstart
 ===
 
