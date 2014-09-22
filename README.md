@@ -5,7 +5,7 @@ Edit list of entities on single page.
 Plugin allows to add new entities to a list, edit and remove existing objects. It works with tables, lists and other structures.
 
 Quickstart
-==
+===
 
 Create a table and add some attributes and classes:
 ```
@@ -49,7 +49,7 @@ Entity has 4 states:
 - deleting.
 
 Create a New Entity
-=
+---
 
 When user clicks 'Add new entity' button, MoF plugin sends GET request to url from <b>mof-get-new-entity-url</b> attribute of the table tag.
 
@@ -86,7 +86,7 @@ This code replaces the form.
 When user click 'Cancel' button, the form disappears.
 
 Edit an Entity
-=
+---
 
 When user clicks 'Edit' button, the plugin sends GET request to url from <b>mof-edit-url</b> attribute. The answer should be HTML code with edit form and 'cancal' and 'confirm' buttons:
 ```
@@ -104,6 +104,9 @@ If user clicks 'Confirm' button, the plugin sends POST request to url from <b>mo
 'Cancel' buttun return the entity to the normal state.
 
 Delete an Entity
-=
+---
 
-When user clicks 'Delete' button, MoF plugin changes a state of entity to 'deleting'. The plugin does not send any requests until user clicks 'Confirm' button. When 'Confirm' button is clicked, POST requests is sent to url from 'mof-delete-url' attribute.
+When user clicks 'Delete' button, MoF plugin changes a state of entity to 'deleting', hides 'Edit' and 'Delete' buttons and shows 'Confirm' and 'Cancel'.
+
+
+The plugin does not send any requests until user clicks 'Confirm' button. When 'Confirm' button is clicked, POST requests is sent to url from 'mof-delete-url' attribute.
