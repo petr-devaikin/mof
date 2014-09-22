@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Modify on the Fly Example</title>
+        <link href="./mof/jquery.mof.css" rel="stylesheet">
+        <style>
+            table {
+                border: 1px solid silver;
+            }
+
+            td {
+                width: 200px;
+                border: 1px solid silver;
+                padding: 5px 10px;
+            }
+
+            #createButton {
+                margin-bottom: 20px;
+            }
+
+            .__mofEntityCreate {
+                background: green;
+            }
+
+            .__mofEntityEdit {
+                background: yellow;
+            }
+
+            .__mofEntityDelete {
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="createButton">Add new entity</button>        
+        <table mof-create-button-id="createButton" mof-get-new-entity-url="./entities/create-form.html">
+            <thead>
+                <th>Entities</th>
+                <th>Action</th>
+            </thead>
+            <tr class="mofEntity" mof-edit-url="./entities/edit-form.html" mof-delete-url="./entities/delete.html">
+                <td>Entity 1</td>
+                <td>
+                    <button class="mofEntityEditButton">Edit</button>
+                    <button class="mofEntityDeleteButton">Delete</button>
+                    <button class="mofEntityConfirmButton">Confirm</button>
+                    <button class="mofEntityCancelButton">Cancel</button>
+                </td>
+            </tr>
+        </table>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="./mof/jquery.mof.js"></script>
+        <script>
+            $(function () {
+                $("table").mofEntities();
+            })
+        </script>
+    </body>
+</html>
