@@ -4,6 +4,8 @@
     $.fn.mofEntities = function (options) {
         var settings = $.extend({}, $.fn.mofEntities.defaults, options);
 
+        var $postMethod = settings.test ? $.get : $.post;
+
         return this.each(function () {
             var $this = $(this);
 
@@ -102,7 +104,7 @@
             var $el = $(el);
             $el.addClass(settings.inProcessStateClass);
             var formData = getAllFormValues($el);
-            $.post(settings.getEditUrl($el), formData)
+            $postMethod(settings.getEditUrl($el), formData)
                 .done(function (data, textStatus, jqXHR) {
                     var $data = $(data);
                     if (settings.checkErrors($data))
@@ -125,7 +127,7 @@
             var $el = $(el);
             $el.addClass(settings.inProcessStateClass);
             var formData = getAllFormValues();
-            $.post(settings.getCreateUrl($el), formData)
+            $postMethod(settings.getCreateUrl($el), formData)
                 .done(function (data, textStatus, jqXHR) {
                     var $data = $(data);
                     if (settings.checkErrors($data))
@@ -145,7 +147,7 @@
         function sendDeleteRequest(el) {
             var $el = $(el);
             $el.addClass(settings.inProcessStateClass);
-            $.post(settings.getDeleteUrl($el), {"delete": true})
+            $postMethod(settings.getDeleteUrl($el), {"delete": true})
                 .done(function (data, textStatus, jqXHR) {
                     $el.remove();
                 })
@@ -201,6 +203,8 @@
 
 
     $.fn.mofEntities.defaults = {
+        test: false,
+
         entitySelector: ".mofEntity",
 
         viewStateClass: "__mofEntityView",
