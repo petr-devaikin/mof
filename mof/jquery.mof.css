@@ -1,0 +1,22 @@
+﻿.mofEntity.__mofEntityView .mofEntityConfirmButton,
+.mofEntity.__mofEntityView .mofEntityCancelButton {
+    display: none;
+}
+
+.mofEntity.__mofEntityEdit .mofEntityEditButton,
+.mofEntity.__mofEntityCreate .mofEntityEditButton,
+.mofEntity.__mofEntityDelete .mofEntityEditButton,
+.mofEntity.__mofEntityEdit .mofEntityDeleteButton,
+.mofEntity.__mofEntityCreate .mofEntityDeleteButton,
+.mofEntity.__mofEntityDelete .mofEntityDeleteButton {
+    display: none;
+}
+
+.__mofEntityInProcess {
+    opacity: 0.1;
+}
+
+.__mofEntityInProcess button,
+.__mofEntityInProcess a {
+    visibility: hidden !important;
+}

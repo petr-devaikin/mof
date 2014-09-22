@@ -10,7 +10,7 @@
             $(settings.entitySelector, this).each(function () { addHandlersToEntity(this); });
 
             if ($this.attr(settings.createButtonIdAttributeName) !== undefined) {
-                $("#" + $this.attr(settings.createButtonIdAttributeName)).click(function () {
+                $("#" + $this.attr(settings.createButtonIdAttributeName)).click(function (event) {
                     var $btn = $(this);
                     $btn.addClass(settings.inProcessStateClass);
                     $.ajax({
@@ -60,7 +60,7 @@
                 event.stopPropagation();
             });
 
-            settings.rowPostProcessing(el);
+            settings.entityPostProcessing(el);
         }
 
         function changeStateTo(el, newState) {
@@ -145,8 +145,7 @@
         function sendDeleteRequest(el) {
             var $el = $(el);
             $el.addClass(settings.inProcessStateClass);
-            var formData = getAllFormValues();
-            $.post(settings.getDeleteUrl($el), formData)
+            $.post(settings.getDeleteUrl($el), {"delete": true})
                 .done(function (data, textStatus, jqXHR) {
                     $el.remove();
                 })
@@ -212,10 +211,10 @@
 
         createButtonIdAttributeName: "mof-create-button-id",
 
-        editButtonSelector: ".mofEntityEdit",
-        deleteButtonSelector: ".mofEntityDelete",
-        confirmButtonSelector: ".mofEntityConfirm",
-        cancelButtonSelector: ".mofEntityCancel",
+        editButtonSelector: ".mofEntityEditButton",
+        deleteButtonSelector: ".mofEntityDeleteButton",
+        confirmButtonSelector: ".mofEntityConfirmButton",
+        cancelButtonSelector: ".mofEntityCancelButton",
 
         formInputsSelector: "input,textarea,select",
 
@@ -243,7 +242,7 @@
             return false;
         },
 
-        rowPostProcessing: function (row) {
+        entityPostProcessing: function (row) {
             return;
         },
 
