@@ -10,7 +10,7 @@ Quickstart
 ===
 
 Create a table and add some attributes and classes:
-```
+```html
 <button id="createButton">Add new Entity</button>
 
 <table mof-create-button-id="createButton" mof-get-new-entity-url="get_new_entity_form_url">
@@ -26,7 +26,7 @@ Create a table and add some attributes and classes:
 </table>
 ```
 
-```
+```js
     $(function () {
         $(table).mofEntities();
     })
@@ -56,7 +56,7 @@ Create a New Entity
 When user clicks 'Add new entity' button, MoF plugin sends GET request to url from <b>mof-get-new-entity-url</b> attribute of the table tag.
 
 The answer should be HTML code with a form and Confirm and Cancel buttons. For example:
-```
+```html
     <tr class="mofEntity" mof-create-url="create_entity_url">
         <td><input value="New Entity" /></td>
         <td>
@@ -71,7 +71,7 @@ This answer is inserted to the top of the table.
 The entity in this answer also has an attribute <b>mof-create-url</b>. When user clicks 'Confirm' button, MoF plugin sends POST request to corresponding url.
 
 The answer should be the HTML code of a new entity. For example:
-```
+```html
 <tr class="mofEntity" mof-edit-url="get_edit_entity_2_form_url" mof-delete-url="delete_entity_2_url">
     <td>Entity 2</td>
     <td>
@@ -91,7 +91,7 @@ Edit an Entity
 ---
 
 When user clicks 'Edit' button, the plugin sends GET request to url from <b>mof-edit-url</b> attribute. The answer should be HTML code with edit form and 'cancal' and 'confirm' buttons:
-```
+```html
 <tr class="mofEntity" mof-edit-url="edit_entity_1_url">
     <td><input value="Entity 1" /></td>
     <td>
